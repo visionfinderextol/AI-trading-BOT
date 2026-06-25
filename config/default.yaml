@@ -1,0 +1,43 @@
+app:
+  name: "KeitaroAI Bot"
+  version: "2.1.0"
+  window:
+    width: 1400
+    height: 900
+    min_width: 1000
+    min_height: 700
+
+strategy:
+  sma_fast: 10
+  sma_slow: 30
+  rsi_period: 14
+  rsi_oversold: 30
+  rsi_overbought: 70
+
+risk:
+  min_trade_amount: 50
+  max_trade_amount: 500
+  risk_level: 2     # 1=Low, 2=Medium, 3=High, 4=Aggressive
+  max_drawdown: 0.15
+  stop_loss: 0.03
+  take_profit: 0.06
+
+ai:
+  provider: "gemini"
+  model: "gemini-1.5-pro"
+  analysis_interval: 300  # seconds
+  confidence_threshold: 60
+
+exchange:
+  data_source: "yahoo"
+  default_assets:
+    - { symbol: "BTC-USD", name: "Bitcoin" }
+    - { symbol: "ETH-USD", name: "Ethereum" }
+    - { symbol: "AAPL",    name: "Apple Inc." }
+    - { symbol: "GOOGL",   name: "Alphabet" }
+    - { symbol: "TSLA",    name: "Tesla" }
+    - { symbol: "AMZN",    name: "Amazon" }
+
+database:
+  url: "sqlite:///data/keitaro.db"
+  echo: false
